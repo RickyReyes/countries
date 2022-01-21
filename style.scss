@@ -1,0 +1,289 @@
+// (Dark Mode Elements)
+$dark-blue: hsl(209, 23%, 22%);
+// (Dark Mode Background)
+$darker-blue : hsl(207, 26%, 17%);
+// (Light Mode Text)
+$darkest-blue: hsl(200, 15%, 8%);
+// (Light Mode Input)
+$dark-gray: hsl(0, 0%, 52%);
+// (Light Mode Background)
+$light-gray: hsl(0, 0%, 98%);
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap');
+
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+    font-size: 10px;
+    color: $darkest-blue;
+}
+
+body {
+    font-family: 'Nunito Sans';
+}
+h1 {
+    font-size: 1.2rem;
+}
+header { 
+    display: flex;
+    justify-content: space-between;
+    padding: 2.75rem 1.5rem;
+    background-color: white;
+    box-shadow: 1px 1px 5px hsl(0, 0, 90%);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 3;
+}
+body {
+    background-color: $light-gray;
+    width: 100vw;
+    margin-top: 9rem;
+}
+.mode-flex {
+    display: flex;
+    align-items: center;
+    gap: .8rem;
+    cursor: pointer;
+    .fa-moon {
+        transform: rotateZ(-25deg);
+    }
+    .mode {
+        font-weight: 600;
+    }
+}
+.input-filter-flex {
+    display: flex;
+    flex-direction: column;
+    .search-container {
+        border: 0;
+        border-radius: 5px;
+        margin: 2rem 1.5rem 3rem;
+        box-shadow: 1px 1px 5px hsl(0, 0, 90%);
+        padding-left: 3rem;
+        font-size: 1rem;
+        font-family: 'Nunito Sans';
+        display: flex;
+        align-items: center;
+        background-color: white;
+        .fa-search {
+            opacity: .3;
+            transform: scale(1.4);
+            padding-right: 1rem;
+        }    
+        .search {
+            border: 0;
+            width: 100%;
+            height: 5rem;
+            padding-left: 1rem;
+            &::placeholder {
+                color: $dark-gray;
+                opacity: .5;
+            }
+        }
+    }
+
+    .custom-select {
+        position: relative;
+        margin: 0 1.5rem;
+        width: 60%;
+        select {
+            background-color: white;
+            box-shadow: 1px 1px 5px hsl(0, 0, 90%);
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            padding: 2rem;
+            appearance: none;
+            width: 100%;
+            &:focus {
+                border: none;
+            }
+        }
+        .arrow-container {
+            position: absolute;
+            display: block;
+            right: 0;
+            top: 0;
+            height: 100%;
+            width: 4rem;
+            border-radius: 0 5px 5px 0;
+            background-color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: none;
+        }
+    }
+}
+
+
+.center-countries {
+    display: flex;
+    justify-content: center;
+}
+
+.countries {
+    margin: 5rem 3rem 5rem;
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 6rem;
+    .country {
+        background-color: white;
+        box-shadow: 1px 1px 5px hsl(0, 0, 90%);
+        border-radius: 5px;
+        display: grid;
+        grid-template-rows: 1.2fr 1fr;
+        position: relative;
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+        .name-and-info-container {
+            padding: 2.5rem 2rem 4rem;
+        }
+        .flag {
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            cursor: pointer;
+        }
+        .name {
+            font-size: 1.6rem;
+            margin-bottom: 1.4rem;
+        }
+        .info-container {
+            list-style: none;
+            .info-item {
+                font-size: 1.25rem;
+                .info-title {
+                    font-size: 1.25rem;
+                    font-weight: 600;
+                }
+                &:not(:last-child) {
+                    padding-bottom: .25rem;
+                }
+            }   
+        }
+    }
+}
+
+.detail-page {
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    background-color: white;
+    visibility: hidden;
+    padding: 0 2.5rem 7rem;
+    border-top: 1px solid black;
+    margin-top: 72px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    .back-btn {
+        display: flex;
+        align-items: center;
+        margin-top: 3.25rem;
+        background-color: white;
+        border: 0;
+        box-shadow: 0 0 5px 1px rgba(77, 76, 76, 0.39);
+        padding: .65rem 2.2rem;
+        font-size: 1.25rem;
+        font-weight: 200;
+        .fa-long-arrow-alt-left {
+            scale: 1.5;
+            margin-right: 1rem;
+        }
+    }
+    .center-flag {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .det-flag {
+        display: block;
+        width: 100%;
+        max-width: 400px;
+        margin: 5.5rem 0 3.5rem;
+    }
+    .det-name {
+        font-size: 1.9rem;
+        margin-bottom: 2rem;
+    }
+    .facts {
+        margin-bottom: 3.8rem;
+    }
+    .fact {
+        font-size: 1.2rem;
+        strong {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        & span {
+            font-size: 1.2rem;
+        }
+        &:not(:last-child) {
+            padding-bottom: 1.25rem;
+        }
+    }
+    h2 {
+        font-weight: 600;
+        font-size: 1.4rem;
+        margin-bottom: 1.5rem;
+    }
+    .border-countries-flex {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.2rem;
+        list-style-type: none;
+        .border-country {
+            list-style-type: none;
+            font-size: 1.35rem;
+            box-shadow: 0 0 5px 1px rgba(140, 140, 140, 0.39);
+            text-align: center;
+            padding: .6rem 1rem;
+        }
+    }
+}
+
+@media only screen and (min-width: 950px) {
+    .search-container {
+        width: 100%;
+        max-width: 20vw;
+    }
+    .input-filter-flex {
+        margin: 4rem 5rem 0;
+        .search-container {
+            margin: 0;
+        }
+        padding: 0;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .detail-flex {
+        margin-top: 5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10rem;
+    }
+    .detail-page {
+        .det-flag {
+            margin: 0;
+            width: 900px;
+        }
+    }
+    .fact-flex {
+        display: flex;
+        justify-content: space-between;
+    }
+}

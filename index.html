@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head></head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/6454a1239a.js" crossorigin="anonymous"></script>
+    <title>Countries</title>
+</head>
+<body>
+    <header>
+        <h1>Where in the world?</h1>
+        <div class="mode-flex">
+            <i class="far fa-moon"></i>
+            <p class="mode">Dark Mode</p>
+        </div>
+    </header>
+    <main>
+        <div class="input-filter-flex">
+            <div class="search-container">
+                <i class="fas fa-search"></i>
+                <input class="search" type="text" placeholder="Search for a country..."/>
+            </div>
+            <div class="custom-select">
+                <select class="filter" name="regions">
+                    <option value="" disabled selected>Filter by Region</option>
+                    <option value="all">All</option>
+                    <option value="africa">Africa</option>
+                    <option value="americas">Americas</option>
+                    <option value="asia">Asia</option>
+                    <option value="europe">Europe</option>
+                    <option value="oceania">Oceania</option>
+                </select> 
+                <span class="arrow-container">
+                    <i class="fas fa-angle-down"></i>
+                </span>
+            </div>
+        </div>
+        <div class="countries-center">
+            <ul class="countries">
+            </ul>
+        </div>
+        <div class="detail-page">
+            <button class="back-btn"><i class="fas fa-long-arrow-alt-left"></i> Back</button>
+            <div class="detail-flex">
+                <div class="detail-flex-left">
+                    <div class="center-flag">
+                        <img class="det-flag" src="https://flagcdn.com/w320/be.png" alt="flag">
+                    </div>
+                </div>
+                <div class="detail-flex-right">
+                    <h1 class="det-name">Belgium</h1>
+                    <div class="fact-flex">
+                        <section class="facts fact-flex-left">
+                            <div class="fact"><strong>Native Name: </strong><span class="det-native-name">Belgie</span></div>
+                            <div class="fact"><strong>Population: </strong><span class="det-pop">11,319,511</span></div>
+                            <div class="fact"><strong>Region: </strong><span class="det-region">Europe</span></div>
+                            <div class="fact"><strong>Sub Region: </strong><span class="det-sub-region">Western Europe</span></div>
+                            <div class="fact"><strong>Capital: </strong><span class="det-capital">Brussels</span></div>
+                        </section>
+                        <section class="facts fact-flex-right">
+                            <div class="fact"><strong>Top Level Domain: </strong><span class="det-tld">.be</span></div>
+                            <div class="fact"><strong>Currencies: </strong><span class="det-currencies">Euro</span></div>
+                            <div class="fact"><strong>Languages: </strong><span class="det-languages">Dutch, French, German</span></div>
+                        </section>
+                    </div>
+                    
+                    <h2>Border Countries:</h2>
+                    <ul class="border-countries-flex">
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+    <script src="main.js"></script>
+</html>
