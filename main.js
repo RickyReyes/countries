@@ -127,4 +127,5 @@ function renderDetails(e) {
     bordersUl.innerHTML = bordersHtml;
 
     detailPage.style.visibility = 'visible';
+    document.body.style.overflowY = 'hidden'
 }
