@@ -108,7 +108,7 @@ function renderDetails(e) {
     
     flag.src = `${country.flags.png}`;
     name.textContent = country.name.common;
-    nativeName.textContent = Object.values(country.name.nativeName)[0].common;
+    nativeName.textContent = country.name.nativeName ? Object.values(country.name.nativeName)[0].common : 'None';
     pop.textContent = numberWithCommas(country.population);
     region.textContent = country.region;
     subRegion.textContent = country.subregion ? country.subregion : 'None';
