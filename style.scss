@@ -9,6 +9,14 @@ $dark-gray: hsl(0, 0%, 52%);
 // (Light Mode Background)
 $light-gray: hsl(0, 0%, 98%);
 
+@mixin boxShadowLight {
+    box-shadow: 1px 1px 5px hsl(0, 0, 90%);
+}
+
+@mixin boxShadowDark {
+    box-shadow: 1px 1px 5px hsl(0, 0, 90%);
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap');
 
 html {
@@ -36,7 +44,7 @@ header {
     justify-content: space-between;
     padding: 2.75rem 1.5rem;
     background-color: white;
-    box-shadow: 1px 1px 5px hsl(0, 0, 90%);
+    @include boxShadowLight;
     position: fixed;
     top: 0;
     width: 100%;
@@ -66,7 +74,7 @@ body {
         border: 0;
         border-radius: 5px;
         margin: 2rem 1.5rem 3rem;
-        box-shadow: 1px 1px 5px hsl(0, 0, 90%);
+        @include boxShadowLight;
         padding-left: 3rem;
         font-size: 1rem;
         font-family: 'Nunito Sans';
@@ -96,7 +104,7 @@ body {
         width: 60%;
         select {
             background-color: white;
-            box-shadow: 1px 1px 5px hsl(0, 0, 90%);
+            @include boxShadowLight;
             border: none;
             border-radius: 5px;
             font-size: 1.1rem;
@@ -124,21 +132,19 @@ body {
     }
 }
 
-
-.center-countries {
-    display: flex;
-    justify-content: center;
+.countries-center {
+    padding: 0 5rem;
 }
 
 .countries {
-    margin: 5rem 3rem 5rem;
+    padding: 5rem 0 5rem;
     list-style: none;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 6rem;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 5rem;
     .country {
         background-color: white;
-        box-shadow: 1px 1px 5px hsl(0, 0, 90%);
+        @include boxShadowLight;
         border-radius: 5px;
         display: grid;
         grid-template-rows: 1.2fr 1fr;
@@ -184,7 +190,6 @@ body {
     background-color: white;
     visibility: hidden;
     padding: 0 2.5rem 7rem;
-    border-top: 1px solid black;
     margin-top: 72px;
     overflow-y: scroll;
     overflow-x: hidden;
@@ -194,10 +199,11 @@ body {
         margin-top: 3.25rem;
         background-color: white;
         border: 0;
-        box-shadow: 0 0 5px 1px rgba(77, 76, 76, 0.39);
+        @include boxShadowDark;
         padding: .65rem 2.2rem;
         font-size: 1.25rem;
         font-weight: 200;
+        cursor: pointer;
         .fa-long-arrow-alt-left {
             scale: 1.5;
             margin-right: 1rem;
@@ -213,6 +219,7 @@ body {
         width: 100%;
         max-width: 400px;
         margin: 5.5rem 0 3.5rem;
+        @include boxShadowLight;
     }
     .det-name {
         font-size: 1.9rem;
@@ -247,7 +254,7 @@ body {
         .border-country {
             list-style-type: none;
             font-size: 1.35rem;
-            box-shadow: 0 0 5px 1px rgba(140, 140, 140, 0.39);
+            @include boxShadowDark;
             text-align: center;
             padding: .6rem 1rem;
         }
@@ -271,15 +278,19 @@ body {
     }
     .detail-flex {
         margin-top: 5rem;
-        display: flex;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
         justify-content: center;
         align-items: center;
-        gap: 10rem;
     }
     .detail-page {
+        padding: 0 7rem;
+        .center-flag {
+            justify-content: flex-start;
+        }
         .det-flag {
             margin: 0;
-            width: 900px;
+            max-width: 450px;
         }
     }
     .fact-flex {

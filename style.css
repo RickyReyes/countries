@@ -173,23 +173,18 @@ body {
   pointer-events: none;
 }
 
-.center-countries {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+.countries-center {
+  padding: 0 5rem;
 }
 
 .countries {
-  margin: 5rem 3rem 5rem;
+  padding: 5rem 0 5rem;
   list-style: none;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (minmax(240px, 1fr))[auto-fit];
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 6rem;
+  -ms-grid-columns: (minmax(230px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 5rem;
 }
 
 .countries .country {
@@ -249,7 +244,6 @@ body {
   background-color: white;
   visibility: hidden;
   padding: 0 2.5rem 7rem;
-  border-top: 1px solid black;
   margin-top: 72px;
   overflow-y: scroll;
   overflow-x: hidden;
@@ -265,11 +259,12 @@ body {
   margin-top: 3.25rem;
   background-color: white;
   border: 0;
-  -webkit-box-shadow: 0 0 5px 1px rgba(77, 76, 76, 0.39);
-          box-shadow: 0 0 5px 1px rgba(77, 76, 76, 0.39);
+  -webkit-box-shadow: 1px 1px 5px #e6e6e6;
+          box-shadow: 1px 1px 5px #e6e6e6;
   padding: .65rem 2.2rem;
   font-size: 1.25rem;
   font-weight: 200;
+  cursor: pointer;
 }
 
 .detail-page .back-btn .fa-long-arrow-alt-left {
@@ -294,6 +289,8 @@ body {
   width: 100%;
   max-width: 400px;
   margin: 5.5rem 0 3.5rem;
+  -webkit-box-shadow: 1px 1px 5px #e6e6e6;
+          box-shadow: 1px 1px 5px #e6e6e6;
 }
 
 .detail-page .det-name {
@@ -341,8 +338,8 @@ body {
 .detail-page .border-countries-flex .border-country {
   list-style-type: none;
   font-size: 1.35rem;
-  -webkit-box-shadow: 0 0 5px 1px rgba(140, 140, 140, 0.39);
-          box-shadow: 0 0 5px 1px rgba(140, 140, 140, 0.39);
+  -webkit-box-shadow: 1px 1px 5px #e6e6e6;
+          box-shadow: 1px 1px 5px #e6e6e6;
   text-align: center;
   padding: .6rem 1rem;
 }
@@ -371,20 +368,28 @@ body {
   }
   .detail-flex {
     margin-top: 5rem;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    gap: 10rem;
+  }
+  .detail-page {
+    padding: 0 7rem;
+  }
+  .detail-page .center-flag {
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
   }
   .detail-page .det-flag {
     margin: 0;
-    width: 900px;
+    max-width: 450px;
   }
   .fact-flex {
     display: -webkit-box;
