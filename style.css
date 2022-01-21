@@ -174,7 +174,7 @@ body {
 }
 
 .countries-center {
-  padding: 0 5rem;
+  margin: 0 3.5rem;
 }
 
 .countries {
@@ -369,6 +369,9 @@ body {
   }
   .input-filter-flex .search-container {
     margin: 0;
+  }
+  .countries-center {
+    margin: 0 5rem;
   }
   .detail-flex {
     margin-top: 5rem;
