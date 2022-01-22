@@ -11,6 +11,8 @@ const searchBar = $('.search');
 const detailPage = $('.detail-page');
 const backBtn = $('.back-btn');
 
+let dark = false;
+
 searchBar.addEventListener('input', search);
 select.addEventListener('change', filterCountries);
 backBtn.addEventListener('click', () => {
@@ -36,7 +38,7 @@ function renderCountries(arr) {
       });
 
     let html = arr.map(country => `
-    <li class="country">
+    <li class="country ${dark ? 'dark' : ''}">
         <div class="flag" style="background-image: url(${country.flags.png})"></div>
         <div class="name-and-info-container">
             <h2 class="name">${country.name.common}</h2>
@@ -122,10 +124,45 @@ function renderDetails(e) {
         let codeToCountry = countries.filter(country => country.cca3 == code);
         return codeToCountry[0].name.common;
     }) : ['None'];
-    let bordersHtml = borderCodesArr.map(country => `<li class="border-country">${country}</li>`
+    let bordersHtml = borderCodesArr.map(country => `<li class="border-country  ${dark ? 'dark' : ''}">${country}</li>`
     ).join('');
     bordersUl.innerHTML = bordersHtml;
 
     detailPage.style.visibility = 'visible';
     document.body.style.overflowY = 'hidden'
+}
+
+/* dark mode */
+
+const darkElements = [
+    $('header'),
+    $('h1'), 
+    $('.mode'), 
+    $('body'), 
+    $('.search-container'), 
+    $('.search'), 
+    $('.fa-search'), 
+    $('select'), 
+    $('.arrow-container'),
+    $('.detail-page'),
+    $('.back-btn'),
+    $('.det-flag')
+];
+
+const moon = $('.fa-moon');
+
+
+$('.mode-flex').addEventListener('click', toggleMode);
+
+function toggleMode() {
+    dark = !dark;
+    darkElements.forEach(elem => {
+        elem.classList.toggle('dark');
+    });
+    $$('.country').forEach(country => country.classList.toggle('dark'));
+
+    $$('.border-country').forEach(country => country.classList.toggle('dark'));
+
+    moon.classList.toggle('fas');
+    moon.classList.toggle('far');
 }

@@ -12,15 +12,26 @@ html {
   -webkit-box-sizing: inherit;
           box-sizing: inherit;
   font-size: 12px;
-  color: #111517;
 }
 
 body {
+  color: #111517;
   font-family: 'Nunito Sans';
+  background-color: #fafafa;
+  width: 100vw;
+  margin-top: 9rem;
+}
+
+body.dark {
+  background-color: #202c37;
 }
 
 h1 {
   font-size: 1.2rem;
+}
+
+h1.dark {
+  color: white;
 }
 
 header {
@@ -40,10 +51,10 @@ header {
   z-index: 3;
 }
 
-body {
-  background-color: #fafafa;
-  width: 100vw;
-  margin-top: 9rem;
+header.dark {
+  background-color: #2b3945;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 
 .mode-flex {
@@ -62,8 +73,16 @@ body {
           transform: rotateZ(-25deg);
 }
 
+.mode-flex .fas {
+  color: white;
+}
+
 .mode-flex .mode {
   font-weight: 600;
+}
+
+.mode-flex .mode.dark {
+  color: white;
 }
 
 .input-filter-flex {
@@ -94,11 +113,22 @@ body {
   background-color: white;
 }
 
+.input-filter-flex .search-container.dark {
+  color: white;
+  background-color: #2b3945;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
 .input-filter-flex .search-container .fa-search {
-  opacity: .3;
+  color: grey;
   -webkit-transform: scale(1.4);
           transform: scale(1.4);
   padding-right: 1rem;
+}
+
+.input-filter-flex .search-container .fa-search.dark {
+  color: white;
 }
 
 .input-filter-flex .search-container .search {
@@ -109,23 +139,40 @@ body {
 }
 
 .input-filter-flex .search-container .search::-webkit-input-placeholder {
-  color: #858585;
-  opacity: .5;
+  color: white;
 }
 
 .input-filter-flex .search-container .search:-ms-input-placeholder {
-  color: #858585;
-  opacity: .5;
+  color: white;
 }
 
 .input-filter-flex .search-container .search::-ms-input-placeholder {
-  color: #858585;
-  opacity: .5;
+  color: white;
 }
 
 .input-filter-flex .search-container .search::placeholder {
-  color: #858585;
-  opacity: .5;
+  color: white;
+}
+
+.input-filter-flex .search-container .search.dark {
+  color: white;
+  background-color: #2b3945;
+}
+
+.input-filter-flex .search-container .search.dark::-webkit-input-placeholder {
+  color: white;
+}
+
+.input-filter-flex .search-container .search.dark:-ms-input-placeholder {
+  color: white;
+}
+
+.input-filter-flex .search-container .search.dark::-ms-input-placeholder {
+  color: white;
+}
+
+.input-filter-flex .search-container .search.dark::placeholder {
+  color: white;
 }
 
 .input-filter-flex .custom-select {
@@ -152,6 +199,13 @@ body {
   border: none;
 }
 
+.input-filter-flex .custom-select select.dark {
+  color: white;
+  background-color: #2b3945;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
 .input-filter-flex .custom-select .arrow-container {
   position: absolute;
   display: block;
@@ -171,6 +225,11 @@ body {
       -ms-flex-pack: center;
           justify-content: center;
   pointer-events: none;
+}
+
+.input-filter-flex .custom-select .arrow-container.dark {
+  background-color: #2b3945;
+  color: white;
 }
 
 .countries-center {
@@ -200,6 +259,13 @@ body {
   width: 100%;
   max-width: 400px;
   margin: 0 auto;
+}
+
+.countries .country.dark {
+  background-color: #2b3945;
+  color: white;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 
 .countries .country .name-and-info-container {
@@ -249,6 +315,11 @@ body {
   overflow-x: hidden;
 }
 
+.detail-page.dark {
+  color: white;
+  background-color: #202c37;
+}
+
 .detail-page .back-btn {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -268,6 +339,15 @@ body {
   font-size: 1.25rem;
   font-weight: 200;
   cursor: pointer;
+}
+
+.detail-page .back-btn.dark {
+  color: white;
+  background-color: #2b3945;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  -webkit-box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+          box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
 }
 
 .detail-page .back-btn .fa-long-arrow-alt-left {
@@ -295,6 +375,11 @@ body {
   margin: 5.5rem 0 3.5rem;
   -webkit-box-shadow: 1px 1px 5px #e6e6e6;
           box-shadow: 1px 1px 5px #e6e6e6;
+}
+
+.detail-page .det-flag.dark {
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 
 .detail-page .det-name {
@@ -346,6 +431,11 @@ body {
           box-shadow: 1px 1px 5px #e6e6e6;
   text-align: center;
   padding: .6rem 1rem;
+}
+
+.detail-page .border-countries-flex .border-country.dark {
+  -webkit-box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+          box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
 }
 
 @media only screen and (min-width: 950px) {

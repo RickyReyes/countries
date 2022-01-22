@@ -9,12 +9,16 @@ $dark-gray: hsl(0, 0%, 52%);
 // (Light Mode Background)
 $light-gray: hsl(0, 0%, 98%);
 
-@mixin boxShadowLight {
+@mixin boxShadow300 {
+    box-shadow: 1px 1px 5px hsl(0, 0, 90%);
+}
+
+@mixin boxShadow400 {
     box-shadow: 1px 1px 5px hsl(0, 0, 90%);
 }
 
 @mixin boxShadowDark {
-    box-shadow: 1px 1px 5px hsl(0, 0, 90%);
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, .5);
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap');
@@ -30,31 +34,40 @@ html {
     padding: 0;
     box-sizing: inherit;
     font-size: 12px;
-    color: $darkest-blue;
 }
 
 body {
+    color: $darkest-blue;
     font-family: 'Nunito Sans';
+    background-color: $light-gray;
+    width: 100vw;
+    margin-top: 9rem;
+    &.dark {
+        background-color: $darker-blue;
+    }
 }
 h1 {
     font-size: 1.2rem;
+    &.dark {
+        color: white;
+    }
 }
 header { 
     display: flex;
     justify-content: space-between;
     padding: 2.75rem 1.5rem;
     background-color: white;
-    @include boxShadowLight;
+    @include boxShadow300;
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 3;
+    &.dark {
+        background-color: $dark-blue;
+        box-shadow: none;
+    }
 }
-body {
-    background-color: $light-gray;
-    width: 100vw;
-    margin-top: 9rem;
-}
+
 .mode-flex {
     display: flex;
     align-items: center;
@@ -63,8 +76,14 @@ body {
     .fa-moon {
         transform: rotateZ(-25deg);
     }
+    .fas {
+        color: white;
+    }
     .mode {
         font-weight: 600;
+        &.dark {
+            color: white;
+        }
     }
 }
 .input-filter-flex {
@@ -74,17 +93,25 @@ body {
         border: 0;
         border-radius: 5px;
         margin: 2rem 1.5rem 3rem;
-        @include boxShadowLight;
+        @include boxShadow300;
         padding-left: 3rem;
         font-size: 1rem;
         font-family: 'Nunito Sans';
         display: flex;
         align-items: center;
         background-color: white;
+        &.dark {
+            color: white;
+            background-color: $dark-blue;
+            box-shadow: none;
+        }
         .fa-search {
-            opacity: .3;
+            color: grey;
             transform: scale(1.4);
             padding-right: 1rem;
+            &.dark {
+                color: white;
+            }
         }    
         .search {
             border: 0;
@@ -92,8 +119,14 @@ body {
             height: 5rem;
             padding-left: 1rem;
             &::placeholder {
-                color: $dark-gray;
-                opacity: .5;
+                color: white;
+            }
+            &.dark {
+                color: white;
+                background-color: $dark-blue;
+                &::placeholder {
+                    color: white;
+                }
             }
         }
     }
@@ -104,7 +137,7 @@ body {
         width: 60%;
         select {
             background-color: white;
-            @include boxShadowLight;
+            @include boxShadow300;
             border: none;
             border-radius: 5px;
             font-size: 1.1rem;
@@ -113,6 +146,11 @@ body {
             width: 100%;
             &:focus {
                 border: none;
+            }
+            &.dark {
+                color: white;
+                background-color: $dark-blue;
+                box-shadow: none;
             }
         }
         .arrow-container {
@@ -128,6 +166,10 @@ body {
             align-items: center;
             justify-content: center;
             pointer-events: none;
+            &.dark {
+                background-color: $dark-blue;
+                color: white;
+            }
         }
     }
 }
@@ -144,14 +186,19 @@ body {
     gap: 5rem;
     .country {
         background-color: white;
-        @include boxShadowLight;
+        @include boxShadow300;
         border-radius: 5px;
         display: grid;
         grid-template-rows: 1.2fr 1fr;
         position: relative;
         width: 100%;
         max-width: 400px;
-        margin: 0 auto;
+        margin: 0 auto;        
+        &.dark {
+            background-color: $dark-blue;
+            color: white;
+            box-shadow: none;
+        }
         .name-and-info-container {
             padding: 2.5rem 2rem 4rem;
         }
@@ -193,6 +240,10 @@ body {
     margin-top: 72px;
     overflow-y: scroll;
     overflow-x: hidden;
+    &.dark {
+        color: white;
+        background-color: $darker-blue;
+    }
     .back-btn {
         display: flex;
         align-items: center;
@@ -200,11 +251,17 @@ body {
         margin-top: 3.25rem;
         background-color: white;
         border: 0;
-        @include boxShadowDark;
+        @include boxShadow400;
         padding: .65rem 2.2rem;
         font-size: 1.25rem;
         font-weight: 200;
         cursor: pointer;
+        &.dark {
+            color: white;
+            background-color: $dark-blue;
+            box-shadow: none;
+            @include boxShadowDark;
+        }
         .fa-long-arrow-alt-left {
             transform: scale(1.5);
             margin-right: 1rem;
@@ -220,7 +277,10 @@ body {
         width: 100%;
         max-width: 400px;
         margin: 5.5rem 0 3.5rem;
-        @include boxShadowLight;
+        @include boxShadow300;
+        &.dark {
+            box-shadow: none;
+        }
     }
     .det-name {
         font-size: 1.9rem;
@@ -255,9 +315,12 @@ body {
         .border-country {
             list-style-type: none;
             font-size: 1.35rem;
-            @include boxShadowDark;
+            @include boxShadow400;
             text-align: center;
             padding: .6rem 1rem;
+            &.dark {
+                @include boxShadowDark;
+            }
         }
     }
 }
