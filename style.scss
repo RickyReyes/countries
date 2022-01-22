@@ -36,6 +36,10 @@ html {
     font-size: 12px;
 }
 
+*:focus-visible {
+    outline: none;
+}
+
 body {
     color: $darkest-blue;
     font-family: 'Nunito Sans';

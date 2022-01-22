@@ -80,7 +80,7 @@ function filterCountries() {
 function search(e) {
     let str = e.target.value.toLowerCase();
     let matches = countries.filter(country => {
-        let name = country.name.common.toLowerCase()
+        let name = country.name.common.toLowerCase();
         return name.includes(str);
     });
     renderCountries(matches);
