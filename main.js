@@ -4,14 +4,15 @@ window.$$ = document.querySelectorAll.bind(document);
 
 const endpoint = 'https://restcountries.com/v3.1/all';
 let countries = [];
+let borderCodesArr = [];
 let flags;
+let borders = [];
+let dark = false;
 const ul = $('ul');
 const select = $('select');
 const searchBar = $('.search');
 const detailPage = $('.detail-page');
 const backBtn = $('.back-btn');
-
-let dark = false;
 
 searchBar.addEventListener('input', search);
 select.addEventListener('change', filterCountries);
@@ -24,7 +25,7 @@ async function fetchCountries() {
     const response = await fetch(endpoint);
     countries = await response.json();
     renderCountries(countries);
-    ul.addEventListener('click', renderDetails);
+    ul.addEventListener('click', handleDetailClick);
 }
 
 fetchCountries();
@@ -86,14 +87,27 @@ function search(e) {
     renderCountries(matches);
 }
 
-/* render the countries details when you click on a flag */
-function renderDetails(e) {
-    if (!e.target.classList.contains('flag')) return; /* not a flag */
-   
-    let country = countries.filter(country => {
-        return `url("${country.flags.png}")` == e.target.style.backgroundImage;
-    })[0];
 
+function handleDetailClick(e) {
+    if (!e.target.classList.contains('flag') &&
+        !e.target.classList.contains('border-country')) return; /* not a flag  or border country */
+    if (e.target.classList.contains('flag')) {
+        let country = countries.filter(country => {
+            return `url("${country.flags.png}")` == e.target.style.backgroundImage;
+        })[0];
+        renderDetails(country);
+    }
+    if (e.target.classList.contains('border-country')) {
+        if (e.target.textContent == 'None')return;
+        let name = this.textContent.toLowerCase();
+        let country = countries.filter(country => 
+            country.name.common.toLowerCase() == name
+        )[0];
+        renderDetails(country);
+    }
+}
+/* render the countries details when you click on a flag */
+function renderDetails(country) {
     /* we will map information into these
     DOM elements */
     let flag = $('.det-flag');
@@ -120,14 +134,18 @@ function renderDetails(e) {
     languages.textContent = country.languages ? Object.values(country.languages).join(', ') : 'None';
 
     let filteredBorderCodes = country.borders ? country.borders.filter(border => border !== "UNK") : [];
-    let borderCodesArr = country.borders ? filteredBorderCodes.map(code => {
+
+    borderCodesArr = country.borders ? filteredBorderCodes.map(code => {
         let codeToCountry = countries.filter(country => country.cca3 == code);
         return codeToCountry[0].name.common;
     }) : ['None'];
-    let bordersHtml = borderCodesArr.map(country => `<li class="border-country  ${dark ? 'dark' : ''}">${country}</li>`
-    ).join('');
-    bordersUl.innerHTML = bordersHtml;
 
+    let bordersHtml = borderCodesArr.map(country => `<li class="border-country ${dark ? 'dark' : ''}">${country}</li>`
+    ).join('');
+
+    bordersUl.innerHTML = bordersHtml;
+    borders = $$('.border-country');
+    borders.forEach(border => border.addEventListener('click', handleDetailClick));
     detailPage.style.visibility = 'visible';
     document.body.style.overflowY = 'hidden'
 }
@@ -151,7 +169,6 @@ const darkElements = [
 
 const moon = $('.fa-moon');
 
-
 $('.mode-flex').addEventListener('click', toggleMode);
 
 function toggleMode() {
@@ -159,10 +176,10 @@ function toggleMode() {
     darkElements.forEach(elem => {
         elem.classList.toggle('dark');
     });
+
     $$('.country').forEach(country => country.classList.toggle('dark'));
-
     $$('.border-country').forEach(country => country.classList.toggle('dark'));
-
     moon.classList.toggle('fas');
     moon.classList.toggle('far');
 }
+

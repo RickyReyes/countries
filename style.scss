@@ -319,6 +319,7 @@ header {
         .border-country {
             list-style-type: none;
             font-size: 1.35rem;
+            cursor: pointer;
             @include boxShadow400;
             text-align: center;
             padding: .6rem 1rem;

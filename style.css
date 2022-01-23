@@ -431,6 +431,7 @@ header.dark {
 .detail-page .border-countries-flex .border-country {
   list-style-type: none;
   font-size: 1.35rem;
+  cursor: pointer;
   -webkit-box-shadow: 1px 1px 5px #e6e6e6;
           box-shadow: 1px 1px 5px #e6e6e6;
   text-align: center;
