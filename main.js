@@ -77,7 +77,7 @@ function filterCountries() {
     renderCountries(filtered);
 }
 
-/* search for a country */
+/* search bar functionality */
 function search(e) {
     let str = e.target.value.toLowerCase();
     let matches = countries.filter(country => {
@@ -87,7 +87,8 @@ function search(e) {
     renderCountries(matches);
 }
 
-
+/* passes the correct country to renderDetails, based on either flag click OR
+border country click */
 function handleDetailClick(e) {
     if (!e.target.classList.contains('flag') &&
         !e.target.classList.contains('border-country')) return; /* not a flag  or border country */
@@ -106,7 +107,7 @@ function handleDetailClick(e) {
         renderDetails(country);
     }
 }
-/* render the countries details when you click on a flag */
+/* render the countries details */
 function renderDetails(country) {
     /* we will map information into these
     DOM elements */
@@ -151,7 +152,6 @@ function renderDetails(country) {
 }
 
 /* dark mode */
-
 const darkElements = [
     $('header'),
     $('h1'), 
@@ -168,9 +168,7 @@ const darkElements = [
 ];
 
 const moon = $('.fa-moon');
-
 $('.mode-flex').addEventListener('click', toggleMode);
-
 function toggleMode() {
     dark = !dark;
     darkElements.forEach(elem => {
