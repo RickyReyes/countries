@@ -51,20 +51,18 @@ Users should be able to:
 - [REST Countries](https://restcountries.com/) - REST API
 
 
-### What I learned
+## What I learned
 
-# TROUBLES
-1. Styling a `select` dropdown
-  I learned that default styling in place for <select> dropdowns
+### Styling a `select` dropdown
+  - I learned that default styling in place for <select> dropdowns
   and that it varies from browser to browser. Some articles suggest using JavaScript in order to style the dropdown.
 
-2. Using async, await and fetch
-  This was my first time using an external API for data, and fetch() to retrieve it. At first, I was getting an error because I was trying to work with the data before JavaScript had successfully retrieved it.
-  I researched and learned about synchronous and asynchronous code, and how JavaScript delegates asynchronous code to the browser, in either a microtask queue (higher priority) or a macrotask queue (lower priority). I also learned that functions defined with the async keyword return a Promise, which represents a future unknown value. You can chain functions onto a Promise, which will trigger upon a succesful completion (using .then) or upon failure (using .catch).
+### Using async, await and fetch
+  - This was my first time using an external API for data, and fetch() to retrieve it. At first, I was getting an error because I was trying to work with the data before JavaScript had successfully retrieved it.
+  - I researched and learned about synchronous and asynchronous code, and how JavaScript delegates asynchronous code to the browser, in either a microtask queue (higher priority) or a macrotask queue (lower priority). I also learned that functions defined with the async keyword return a Promise, which represents a future unknown value. You can chain functions onto a Promise, which will trigger upon a succesful completion (using .then) or upon failure (using .catch).
 
-3. Working with REST API data
-  Accessing the data I needed was not a straightforward task. Once I had an array of objects that each represented a country, some pieces of information, like the country's name,  were easy to obtain (country.name.common), while other's, like the country's native name, required some more work (Object.values(country.name.nativeName)[0].common).
-
+### Working with REST API data
+- Accessing the data I needed was not a straightforward task. Once I had an array of objects that each represented a country, some pieces of information, like the country's name,  were easy to obtain (country.name.common), while other's, like the country's native name, required some more work (Object.values(country.name.nativeName)[0].common).
 
 ```js
 const endpoint = 'https://restcountries.com/v3.1/all';
@@ -78,7 +76,7 @@ async function fetchCountries() {
 
 ### Continued development
 
-I am now using the REST Countries API to work on a simple game about flags. In the near future, I am planning to discover more APIs and see what I can build with them. I feel that I have opened a new world of possibilites, having learned fetch() and how to pull values I need.
+- I am now using the REST Countries API to work on a simple game about flags. In the near future, I am planning to discover more APIs and see what I can build with them. I feel that I have opened a new world of possibilites, having learned fetch() and how to pull values I need.
 
 ### Useful resources
 
