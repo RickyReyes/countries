@@ -22,10 +22,14 @@ backBtn.addEventListener('click', () => {
 })
 
 async function fetchCountries() {
-    const response = await fetch(endpoint);
-    countries = await response.json();
-    renderCountries(countries);
-    ul.addEventListener('click', handleDetailClick);
+    try {
+        const response = await fetch(endpoint);
+        countries = await response.json();
+        renderCountries(countries);
+        ul.addEventListener('click', handleDetailClick);
+    } catch(err) {
+        console.log("error: " + err);
+    }
 }
 
 fetchCountries();
