@@ -72,11 +72,8 @@ function numberWithCommas(x) {
 /* functionality for filter by region */
 function filterCountries() {
     /* filter based on search bar value */
-
     let searchValue = searchBar.value
-
-    if (this.value == 'all') {
-        console.log("ALL!")
+    if (this.value == 'all' || this.value == '') {
         let searchCountries = countries.filter(country => country.name.common.toLowerCase().includes(searchValue))
         renderCountries(searchCountries);
         return;
@@ -92,7 +89,7 @@ function search(e) {
     /* save filter value */
     let region = select.value; 
     console.log(region)
-    let regionCountries = region !== 'all' ? countries.filter(country => country.region.toLowerCase() == region) : countries
+    let regionCountries = region == 'all' || region == '' ? countries : countries.filter(country => country.region.toLowerCase() == region)
     // console.log(regionCountries)
     // console.log(countries)
     let str = e.target.value.toLowerCase();
