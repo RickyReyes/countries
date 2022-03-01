@@ -81,7 +81,7 @@ async function fetchCountries() {
 
 ### Useful resources  
 
-- [freeCodeCamp Article](https://www.freecodecamp.org/news/async-await-javascript-tutorial/) - This helped me understand what goes on when we use async, await, and fetch.  
+- [freeCodeCamp Article](https://www.freecodecamp.org/news/async-await-javascript-tutorial/) - This helped me understand what goes on when using async, await, and fetch.  
 - [Kevin Powell video on CSS Grid](https://www.youtube.com/watch?v=rg7Fvvl3taU) - Kevin is my go-to person on YouTube whenever I need to touch up on some CSS skills.
 
 ## Author  

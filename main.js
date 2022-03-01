@@ -71,20 +71,32 @@ function numberWithCommas(x) {
 
 /* functionality for filter by region */
 function filterCountries() {
+    /* filter based on search bar value */
+
+    let searchValue = searchBar.value
+
     if (this.value == 'all') {
-        renderCountries(countries);
+        console.log("ALL!")
+        let searchCountries = countries.filter(country => country.name.common.toLowerCase().includes(searchValue))
+        renderCountries(searchCountries);
         return;
     }
     let filtered = countries.filter(country => {
         return country.region.toLowerCase() == this.value;
-    })
+    }).filter(country => country.name.common.toLowerCase().includes(searchValue))
     renderCountries(filtered);
 }
 
 /* search bar functionality */
 function search(e) {
+    /* save filter value */
+    let region = select.value; 
+    console.log(region)
+    let regionCountries = region !== 'all' ? countries.filter(country => country.region.toLowerCase() == region) : countries
+    // console.log(regionCountries)
+    // console.log(countries)
     let str = e.target.value.toLowerCase();
-    let matches = countries.filter(country => {
+    let matches = regionCountries.filter(country => {
         let name = country.name.common.toLowerCase();
         return name.includes(str);
     });
